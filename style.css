@@ -1,0 +1,45 @@
+/*
+Theme Name: wp-mnml
+Theme URI: http://github.com/danieldinter/wp-mnml
+Author: Daniel Dinter
+Author URI: http://github.com/danieldinter
+Description: A minimalistic and responsive design for content-centered blogs.
+Version: 1.0
+Template: twentyfourteen
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: white, responsive-layout, one-column
+Text Domain: wp-mnml 
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+*/
+
+@import url("../twentyfourteen/style.css");
+
+/**
+ * 2.0 Repeatable Patterns
+ * -----------------------------------------------------------------------------
+ */
+
+#page {
+	margin: 0px auto;
+}
+
+.site, .site-content .entry-header, .site-content .entry-meta, .site-content .entry-content {
+	background: none;
+}
+
+.site:before {
+	background: none;
+	width: 0;
+}
+
+.site-content, .site-main .widecolumn {
+	margin: 0;
+}
+
+.site-content .entry-header, .site-content .entry-content, .site-content .entry-summary, .site-content .entry-meta, .page-content {
+	max-width: 100%;
+}
