@@ -63,6 +63,12 @@ function wp_mnml_navbar_background_customize_register( $wp_customize ) {
 			'transport'   => 'refresh',
 	) );
 	
+	$wp_customize->add_setting( 'wp_mnml_footer_background_color' , array(
+			'default'     => '#000',
+			'transport'   => 'refresh',
+	) );
+	
+	
 	// Add section for customizer
 	$wp_customize->add_section( 'wp_mnml_navbar_section' , array(
 			'title'      => __( 'Navbar', 'wp_mnml' ),
@@ -72,6 +78,11 @@ function wp_mnml_navbar_background_customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'wp_mnml_content_section' , array(
 			'title'      => __( 'Content', 'wp_mnml' ),
 			'priority'   => 31,
+	) );
+	
+	$wp_customize->add_section( 'wp_mnml_footer_section' , array(
+			'title'      => __( 'Footer', 'wp_mnml' ),
+			'priority'   => 32,
 	) );
 	
 	// Add control
@@ -108,8 +119,14 @@ function wp_mnml_navbar_background_customize_register( $wp_customize ) {
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'wp_mnml_content_link_color_hover', array(
 			'label'        => __( 'Link Color Hover', 'wp_mnml' ),
-			'section'    => 'wp_mnml_conent_section',
+			'section'    => 'wp_mnml_content_section',
 			'settings'   => 'wp_mnml_content_link_color_hover',
+	) ) );
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'wp_mnml_footer_background_color', array(
+			'label'        => __( 'Footer Background Color', 'wp_mnml' ),
+			'section'    => 'wp_mnml_footer_section',
+			'settings'   => 'wp_mnml_footer_background_color',
 	) ) );
 	
 }
@@ -137,6 +154,9 @@ function wp_mnml_navbar_background_customize_css()
          	}
          	#main a:hover, .entry-title a:hover {
          		color: <?php echo get_theme_mod('wp_mnml_content_link_color_hover'); ?>;
+         	}
+         	.site-footer {
+         		background-color: <?php echo get_theme_mod('wp_mnml_footer_background_color'); ?>;
          	}
          </style>
     <?php
